@@ -1,0 +1,46 @@
+ 
+.header {
+    height:255px;
+    background:#006FFF;
+    background-image: url("thecapedheader.jpg");
+    background-repeat: no-repeat;
+    background-position: right top;
+    border:1px solid #CCC;
+    width:960px;
+    margin:0px auto;
+    font-size: 290%;
+    color: white;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+    line-height: 1.5;
+    letter-spacing: 3px;
+    font-family: Lucida Console, Helvetica, sans-serif;
+}
+
+.para {
+    font-size: 150%;
+    font-family: Arial, Helvetica, sans-serif;
+    
+}
+
+.button {
+    background-color: #008CBA;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin:0px auto;
+    cursor: pointer;
+    
+}
+section {
+    border: 5px solid black;
+    margin:0px auto;
+    margin-top: 100px;
+    margin-bottom: 100px;
+    
+    width:850px;
+    background-color: lightblue;
+}
