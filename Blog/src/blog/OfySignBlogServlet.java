@@ -48,13 +48,15 @@ public class OfySignBlogServlet extends HttpServlet {
         
         String title = req.getParameter("title");
 
-
-        Post post = new Post(user, title, content);
-
-
-        ofy().save().entity(post).now();
-
-        resp.sendRedirect("/ofyblog.jsp?blogName=" + blogName);
+        if(title != null && !title.equals("")){
+        	Post post = new Post(user, title, content);
+        	ofy().save().entity(post).now();
+        	resp.sendRedirect("/ofyblog.jsp?blogName=" + blogName);
+        	
+        } else{
+        	resp.sendRedirect("/postform.jsp?blogName=" + blogName);
+        }
+        
 
     }
 
