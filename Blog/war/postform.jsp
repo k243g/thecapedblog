@@ -22,7 +22,12 @@
 
   <body>
   
-  <h2 class="header">The </br> Caped </br> Blog</h2>
+  <h2 class="header">  <span style="margin:0px auto; padding-top:20px;">
+  		The&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</br>   
+  		Caped&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</br>
+  		Blog&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></h2>
+  </br>
+  <div class="header2">
   
   <%
     //String blogName = request.getParameter("blogName");
@@ -45,17 +50,33 @@
 
       pageContext.setAttribute("user", user);
 		%>
-		<form action="/ofysign" method="post">
+		<script>
+		   function checkForSubject(theForm) { // passing the form object
+			   var val = theForm.title.value;
+			   if (val==null || val.trim()=="") { 
+			     alert('Please enter a subject before submitting a form.');
+			     theForm.textField1.focus();
+			     return false; // cancel submission
+			  }
+			  return true; // allow submit
+			}
+		</script>
+		<form action="/ofysign" method="post" onsubmit="return checkForSubject(this)">
 		
-		  <div>Title: <input type="text" name="title"><br> </div>
-		
-	      <div><textarea name="content" rows="3" cols="60"></textarea></div>
+		  <div style="font-family: Courier; font-weight: bold; font-size: 140%; text-align: left; vertical-align: text-middle;">
+		  
+		  Title:&nbsp;
+		  <input style="width: 300px; height: 24px;" type="text" name="title"> </br>
+		  Post:&nbsp;&nbsp;
+		  <textarea style="width: 83%; height: 20%; vertical-align: top;" name="content" rows="3" cols="60"></textarea>
+		  </div>
 	
-	      <div><input type="submit" value="Create Post" /></div>
-	
+	      <div style="text-align: center; padding-top: 15px;"><input type="submit" value="Submit Post" />
 	      <input type="hidden" name="blogName" value="${fn:escapeXml(blogName)}"/>
+	      </br></br></div>
 	
 	    </form>
+	
 		
 		<%
     }else {
@@ -75,6 +96,7 @@
 	
 
 %>
+</div>
 
 
 

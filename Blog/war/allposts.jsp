@@ -22,8 +22,12 @@
 
   <body>
   
-  <h2 class="header">The </br> Caped </br> Blog</h2>
-
+  <h2 class="header">  <span style="margin:0px auto; padding-top:20px;">
+  		The&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</br>   
+  		Caped&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</br>
+  		Blog&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></h2>
+  </br>
+  <div class="header2">
 <%
     //String blogName = request.getParameter("blogName");
 	String blogName = "The Caped Blog";
@@ -36,20 +40,20 @@
 
       pageContext.setAttribute("user", user);
 		%>
-		<p align="left">Hello, ${fn:escapeXml(user.nickname)}! (You can
+		<p style="color:#000000; font-size:100%; font-family:Courier;" align="center"><b>Hello, ${fn:escapeXml(user.nickname)}! (Click to
 		
-		<a href="<%= userService.createLogoutURL(request.getRequestURI()) %>">sign out</a>.)</p>
+		<a href="<%= userService.createLogoutURL(request.getRequestURI()) %>">sign out</b></a>.)</p>
 		
 		<%
     } else {
 
 		%>
 		
-		<p>Hello!
+		<p style="color:#000000; font-size:160%; font-family:Courier;" align="center"><b>Hello!
 		
 		<a href="<%= userService.createLoginURL(request.getRequestURI()) %>">Sign in</a>
 		
-		to create new blog post.</p>
+		to create new blog post.</b></p>
 		
 		<%
 
@@ -64,7 +68,7 @@
 
       pageContext.setAttribute("user", user);
 		%>
-		<input type="button" class="button" value="Create Post" onclick="window.open('http://thecapedblog.appspot.com/postform.jsp')" />
+		<input type="button" class="button" value="Create Post" onclick="window.open('http://localhost:8888/postform.jsp')" />
 		
 		<%
     }
@@ -87,7 +91,7 @@
     if (posts.isEmpty()) {
         %>
 
-        <p align="center">${fn:escapeXml(blogName)} has no posts</p>
+        <p align="center" style="color:#000000; font-family: Courier; font-weight: bold;">${fn:escapeXml(blogName)} has no posts</p>
 
         <%
 
@@ -95,7 +99,7 @@
 
         %>
 
-        <p align="center">Latest posts in ${fn:escapeXml(blogName)}</p>
+        <p align="center" style="color:#000000; font-family: Courier; font-weight: bold;">Latest posts in ${fn:escapeXml(blogName)}:</p>
 
         <%
 
@@ -122,6 +126,7 @@
 
         }
 %>
+</div>
 
 
 
