@@ -1,7 +1,5 @@
 package blog;
 
-
-
 import com.google.appengine.api.users.User;
 import com.google.appengine.api.users.UserService;
 import com.google.appengine.api.users.UserServiceFactory;
@@ -20,13 +18,17 @@ import java.util.Date;
 
 
 
+
+
+import java.util.List;
+
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
  
 
-public class OfySignBlogServlet extends HttpServlet {
+public class PostDeleteServlet extends HttpServlet {
 
 	static {
 
@@ -45,22 +47,22 @@ public class OfySignBlogServlet extends HttpServlet {
 
         String blogName = "The Caped Blog";
         
-        String content = req.getParameter("content");
+        String postUser = req.getParameter("postUser");
         
-        String title = req.getParameter("title");
-
-        if(title != null && !title.equals("")){
-        	Post post = new Post(user, title, content);
-        	ofy().save().entity(post).now();
-            //Email dummy = new Email();
-    		//dummy.sendEmail();
-        	resp.sendRedirect("/ofyblog.jsp?blogName=" + blogName);
-        	
-        } else{
-        	resp.sendRedirect("/postform.jsp?blogName=" + blogName);
-        }
+        String postId = req.getParameter("postId");
         
 
+        List<Post> posts = ObjectifyService.ofy().load().type(Post.class).list();
+
+        for(Post p: posts){
+        	if(p.getId().toString().equals(postId)){
+        		if(user.equals(p.getUser())){
+        			ofy().delete().entity(p).now();
+        		}
+        	}
+		}
+        
+        resp.sendRedirect("/ofyblog.jsp?blogName=" + blogName);
     }
 
 }

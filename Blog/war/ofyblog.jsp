@@ -17,6 +17,7 @@
 
   <head>
 	<link type="text/css" rel="stylesheet" href="/stylesheets/main.css" />
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   </head>
 
  
@@ -70,7 +71,7 @@
       pageContext.setAttribute("user", user);
 		%>
 		<div class="center">
-			<input style="center" type="button" class="button" value="Create Post" onclick="window.open('http://localhost:8888/postform.jsp')" />
+			<input style="center" type="button" class="button" value="Create Post" onclick="window.open('http://thecapedblog.appspot.com/postform.jsp')" />
 		</div>
 		<%
 		//check if user is subscriber
@@ -139,7 +140,7 @@
             pageContext.setAttribute("post_user", post.getUser());
             pageContext.setAttribute("post_title", post.getTitle());
             pageContext.setAttribute("post_date", post.getDate());
-            
+            pageContext.setAttribute("post_id", post.getId());
             
 
             %>
@@ -149,9 +150,14 @@
             	<p class="para" style="font-family: Courier; font-weight: bold;">${fn:escapeXml(post_content)}</p>
             	<p align="right" style="font-family: Courier; font-weight: bold;"><strong>${fn:escapeXml(post_user.nickname)} </strong> </p>
             	<p align="right" style="font-family: Courier; font-weight: bold;"> <strong>${fn:escapeXml(post_date)}</strong> </p>
+            	<form style="text-align: left; padding-top: 15px;" action="/delete" method="post">
+					<input style="font-family: Courier; font-weight: bold;" type="submit" value="Delete" />
+					<input type="hidden" name="blogName" value="${fn:escapeXml(blogName)}"/>
+					<input type="hidden" name="postUser" value="${fn:escapeXml(post_user)}"/>
+					<input type="hidden" name="postId" value="${fn:escapeXml(post_id)}"/>
+		    	</form>
             </section>
-            <
-            
+                        
             
 
             <%
@@ -161,7 +167,7 @@
         }
 %>
 	<div class="center">
-	<input type="button" class="button" value="View All Posts" onclick="window.open('http://localhost:8888/allposts.jsp')" />
+	<input type="button" class="button" value="View All Posts" onclick="window.open('http://thecapedblog.appspot.com/allposts.jsp')" />
 	</div>
 	</br></br>
 

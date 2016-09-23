@@ -3,7 +3,7 @@
 	<cron>
 		<url>/cron</url>
 		<description>Subscription</description>
-		<schedule>every day 21:40</schedule>
+		<schedule>every day 17:00</schedule>
 		<timezone>America/Mexico_City</timezone>
 
 	</cron>

@@ -68,7 +68,7 @@
 
       pageContext.setAttribute("user", user);
 		%>
-		<input type="button" class="button" value="Create Post" onclick="window.open('http://localhost:8888/postform.jsp')" />
+		<input type="button" class="button" value="Create Post" onclick="window.open('http://thecapedblog.appspot.com/postform.jsp')" />
 		
 		<%
     }
@@ -105,18 +105,26 @@
 
         for (Post post : posts) {
 
-            pageContext.setAttribute("post_content",post.getContent());
+        	pageContext.setAttribute("post_content",post.getContent());
             pageContext.setAttribute("post_user", post.getUser());
             pageContext.setAttribute("post_title", post.getTitle());
-            pageContext.setAttribute("post_date", post.getDate());  
+            pageContext.setAttribute("post_date", post.getDate());
+            pageContext.setAttribute("post_id", post.getId());
+            
 
             %>
             
             <section >
-            	<h1><b>${fn:escapeXml(post_title)}</b></h1>
-            	<p class="para">${fn:escapeXml(post_content)}</p>
-            	<p align="right"><strong>${fn:escapeXml(post_user.nickname)} </strong> </p>
-            	<p align="right"> <strong>${fn:escapeXml(post_date)}</strong> </p>
+            	<h1 style="font-family: Impact; font-size: 180%;"><b>${fn:escapeXml(post_title)}</b></h1>
+            	<p class="para" style="font-family: Courier; font-weight: bold;">${fn:escapeXml(post_content)}</p>
+            	<p align="right" style="font-family: Courier; font-weight: bold;"><strong>${fn:escapeXml(post_user.nickname)} </strong> </p>
+            	<p align="right" style="font-family: Courier; font-weight: bold;"> <strong>${fn:escapeXml(post_date)}</strong> </p>
+            	<form style="text-align: left; padding-top: 15px;" action="/delete" method="post">
+					<input style="font-family: Courier; font-weight: bold;" type="submit" value="Delete" />
+					<input type="hidden" name="blogName" value="${fn:escapeXml(blogName)}"/>
+					<input type="hidden" name="postUser" value="${fn:escapeXml(post_user)}"/>
+					<input type="hidden" name="postId" value="${fn:escapeXml(post_id)}"/>
+		    	</form>
             </section>
             
 
