@@ -43,11 +43,15 @@ public class OfyUnSubscribeServlet extends HttpServlet {
         for(Subscriber sub: subscribers){
         	if(sub.getUser().equals(user)){
         		ofy().delete().entity(sub).now();
+        		//subscribers.remove(sub);
+        		//load list and delete from there
+        		//then load list back into objectify
         	}
 		}
+        
+        //ofy().save().entity(subscribers).now();
 
-
-      //  ofy().save().entity(sub).now();
+        //ofy().save().entity(sub).now();
 
         resp.sendRedirect("/ofyblog.jsp?blogName=" + blogName);
 

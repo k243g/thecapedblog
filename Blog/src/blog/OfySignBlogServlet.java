@@ -19,6 +19,7 @@ import java.util.Date;
 
 
 
+
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -53,6 +54,9 @@ public class OfySignBlogServlet extends HttpServlet {
 
 
         ofy().save().entity(post).now();
+        
+        Email dummy = new Email();
+		dummy.sendEmail();
 
         resp.sendRedirect("/ofyblog.jsp?blogName=" + blogName);
 
