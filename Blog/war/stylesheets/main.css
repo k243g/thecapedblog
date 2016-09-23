@@ -2,18 +2,49 @@
 .header {
     height:255px;
     background:#006FFF;
-    background-image: url("thecapedheader.jpg");
+    background-image: url("batman_banner.jpg");
     background-repeat: no-repeat;
     background-position: right top;
     border:1px solid #CCC;
-    width:960px;
+    width:800px;
     margin:0px auto;
+    padding-top: 30px;
     font-size: 290%;
     color: white;
     text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
     line-height: 1.5;
     letter-spacing: 3px;
-    font-family: Lucida Console, Helvetica, sans-serif;
+    font-family: Impact, Charcoal, sans-serif;
+    text-align: right;
+}
+
+.header2 {
+	background-image: url("dark_paper_texture.jpg");
+	background-repeat: repeat;
+	background-size: cover;
+	border: 2px solid #000000;
+	width: 1080px;
+	margin: 0px auto;
+	padding-left: 10px;
+	padding-top: 10px;
+	font-family: "Trebuchet MS", Helvetica, sans-serif;
+	
+}
+
+body {
+	background-image: url(bats_flying.png),url(flying_bats_mirrored.png),url(comic_wallpaper.jpg); /*You will specify your image path here.*/
+	-moz-background-size: 5px, 26%, cover;
+	-webkit-background-size: 5px, 26%, cover;
+	background-size: 5px, 26%, cover;
+	background-position: top left important, top left important, top center !important;
+	background-repeat: repeat, no-repeat, no-repeat;
+	background-attachment: fixed, fixed, fixed;
+}
+
+.clean_background {
+	background-image: url("black_background.jpg");
+	background-size: ;
+	margin: 0px auto;
 }
 
 .para {
@@ -23,17 +54,25 @@
 }
 
 .button {
-    background-color: #008CBA;
-    border: none;
+	background: black;
+    border: 2px solid #000000;
     color: white;
     padding: 15px 32px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
-    margin:0px auto;
+    font-family: Courier;
+    font-weight: bold;
     cursor: pointer;
+    position: relative;
+    left: 42%;
     
+}
+
+form {
+	position: relative;
+	margin: 0px;
 }
 section {
     border: 5px solid black;
@@ -42,5 +81,5 @@ section {
     margin-bottom: 100px;
     
     width:850px;
-    background-color: lightblue;
+    background-color: #336699;
 }
